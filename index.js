@@ -16,6 +16,7 @@ const userData = [
     age: 30,
     email: "samansliva@gmail.com",
     status: "active",
+    languages: ["c#", "java", "javascript"],
   },
   {
     firstName: "Nimal",
@@ -23,6 +24,7 @@ const userData = [
     age: 35,
     email: "nimalfernando@gmail.com",
     status: "active",
+    languages: ["javascript", "typescript"],
   },
   {
     firstName: "Kamal",
@@ -30,6 +32,15 @@ const userData = [
     age: 40,
     email: "kamalsilva@gmail.com",
     status: "pending",
+    languages: ["c#", "java"],
+  },
+  {
+    firstName: "Sarath",
+    lastName: "Silva",
+    age: 32,
+    email: "sarathsilva@gmail.com",
+    status: "active",
+    languages: ["javascript"],
   },
 ];
 
@@ -45,4 +56,10 @@ async function listAll() {
   console.log(users);
 }
 
-// listAll();
+listAll();
+
+// async function deleteAll() {
+//   await User.deleteMany();
+// }
+
+// deleteAll().then(() => console.log("Deleted"));

@@ -6,10 +6,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   age: { type: Number, min: 0, max: 100 },
   status: { type: String, enum: ["active", "inactive", "pending"] },
+  languages: { type: [String], required: true },
 });
-
-userSchema.methods.sayHi = function () {
-  console.log("Hi");
-};
 
 module.exports = mongoose.model("User", userSchema);
