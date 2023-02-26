@@ -9,4 +9,32 @@ const userSchema = new mongoose.Schema({
   languages: { type: [String], required: true },
 });
 
+userSchema.methods.sayHi = function () {
+  console.log("say hi from " + this.firstName);
+};
+
+userSchema.methods.fullName = function () {
+  return this.firstName + " " + this.lastName;
+};
+
+userSchema.methods.isAbove = function (age) {
+  return this.age >= age;
+};
+
+userSchema.statics.findByEmail = function (email) {
+  return this.findOne({ email });
+};
+
+userSchema.statics.updateAllInactive = function (status) {
+  return this.updateMany({ status }, { $set: { status: "inactive" } });
+};
+
+userSchema.query.byLastName = function (lastName) {
+  return this.where({ lastName });
+};
+
+userSchema.query.byStatus = function (status) {
+  return this.where({ status });
+};
+
 module.exports = mongoose.model("User", userSchema);
