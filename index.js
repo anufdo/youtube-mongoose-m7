@@ -50,10 +50,22 @@ const userData = [
 
 // insertManyUsers().then(() => console.log("Inserted"));
 
+// async function Update(status) {
+//   await User.updateAllInactive(status);
+// }
+
+// Update("active").then(() => console.log("all inactive"));
+
 // list all users
 async function listAll() {
-  const users = await User.find();
+  const users = await User.find().byLastName("Silva").byStatus("inactive");
   console.log(users);
+  // users[2].sayHi();
+  // console.log(users[0].fullName());
+  // console.log(users[0].isAbove(30));
+
+  // const user = await User.findByEmail("kamalsilva@gmail.com");
+  // console.log(user);
 }
 
 listAll();
